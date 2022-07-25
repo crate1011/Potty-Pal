@@ -1,5 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { EstablishmentContainer } from "../establishments/EstablishmentContainer"
 import { EstablishmentList } from "../establishments/EstablishmentList"
+import { EstablishmentSearch } from "../establishments/EstablishmentSearch"
 
 export const EmployeeViews = () => {
     return (
@@ -12,7 +14,7 @@ export const EmployeeViews = () => {
                     <Outlet />
                 </>
             }>
-                <Route path="/" element={< EstablishmentList/> } />
+                <Route path="/" element={ <EstablishmentContainer /> } />
                 
             </Route>
         </Routes>
