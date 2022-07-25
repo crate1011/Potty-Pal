@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;
+    background-color: gray;
 }
 
 .navbar__item {
@@ -12,3 +13,4 @@
 .navbar__logout {
     margin-left: auto;
 }
+

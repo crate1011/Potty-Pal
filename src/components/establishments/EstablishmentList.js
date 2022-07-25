@@ -4,10 +4,23 @@ import { AreaDropdown } from "../areas/AreaSelect"
 import "./establishments.css"
 
 
-export const EstablishmentList = () => {
+export const EstablishmentList = ({ searchTermState }) => {
 
     const [establishments, setEstablishments] = useState([])
+    const [filterEstablishments, setFilter] = useState([])
     const [selectedArea, setSelectedArea] = useState(null)
+
+
+    useEffect(
+        () => {
+                const searchedEstablishments = establishments.filter(establishment => {
+                    return establishment.name.toLowerCase().startsWith(searchTermState.toLowerCase())
+                })
+                setFilter(searchedEstablishments)
+            
+        },
+        [searchTermState]
+    )
 
     useEffect(
         () => {
@@ -15,6 +28,7 @@ export const EstablishmentList = () => {
             .then(response => response.json())
             .then((establishmentsArray) => {
                setEstablishments(establishmentsArray)
+               setFilter(establishmentsArray)
             })
         },
 
@@ -26,7 +40,7 @@ export const EstablishmentList = () => {
 
         <article className="establishments">
             {
-                establishments.map(
+                filterEstablishments.map(
                     (establishment) => {
                         return <section className="establishment" key={`establishment--${establishment.id}`}>
                             <Link color="orange" className="navbar__link" to="create/review">{establishment.name}</Link>
