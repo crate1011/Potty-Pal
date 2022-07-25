@@ -1,7 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { EstablishmentContainer } from "../establishments/EstablishmentContainer"
-import { EstablishmentList } from "../establishments/EstablishmentList"
-import { EstablishmentSearch } from "../establishments/EstablishmentSearch"
+import { ReviewForm } from "../review/ReviewForm"
 
 export const EmployeeViews = () => {
     return (
@@ -15,6 +14,7 @@ export const EmployeeViews = () => {
                 </>
             }>
                 <Route path="/" element={ <EstablishmentContainer /> } />
+                <Route path="/establishment/:establishmentId" element={ <ReviewForm /> } />
                 
             </Route>
         </Routes>
