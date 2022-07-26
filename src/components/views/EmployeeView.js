@@ -1,6 +1,8 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { EstablishmentContainer } from "../establishments/EstablishmentContainer"
+import { Review } from "../review/Review"
 import { ReviewForm } from "../review/ReviewForm"
+import { ReviewList } from "../review/ReviewList"
 
 export const EmployeeViews = () => {
     return (
@@ -14,7 +16,11 @@ export const EmployeeViews = () => {
                 </>
             }>
                 <Route path="/" element={ <EstablishmentContainer /> } />
-                <Route path="/establishment/:establishmentId" element={ <ReviewForm /> } />
+                <Route path="/establishment/:establishmentId" element={ 
+                <>
+                <ReviewForm />
+                <ReviewList />
+                </> } />
                 
             </Route>
         </Routes>

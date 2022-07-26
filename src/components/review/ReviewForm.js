@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Navigate, useParams } from "react-router-dom"
 import "./review.css"
 
 export const ReviewForm = () => {
     const { establishmentId } = useParams()
     const [accessibilities, setAccessibilities] = useState([])
     const [establishment, updateEstablishment] = useState([])
+    const [accessibilityPosts, setAccessibilityPosts] = useState([])
+    const [posts, setPosts] = useState([])
+
+    const localPottyUser = localStorage.getItem("potty_user")
+    const pottyUserObject = JSON.parse(localPottyUser)
 
     useEffect(
         () => {
@@ -22,31 +27,144 @@ export const ReviewForm = () => {
     useEffect(
         () => {
             fetch(`http://localhost:8088/establishments?id=${establishmentId}`)
-            .then(response => response.json())
-            .then((data) => {
-                const singleEst = data[0]
-                updateEstablishment(singleEst)
-            })
+                .then(response => response.json())
+                .then((data) => {
+                    const singleEst = data[0]
+                    updateEstablishment(singleEst)
+                })
         },
         [establishmentId]
     )
 
-    return <>
+    useEffect(
+        () => {
+            fetch(`http://localhost:8088/posts`)
+                .then(response => response.json())
+                .then((postsArray) => {
+                    setPosts(postsArray)
+                })
+        },
 
+        []
+    )
+    useEffect(
+        () => {
+            fetch(`http://localhost:8088/accessibilityPosts`)
+                .then(response => response.json())
+                .then((accessibilityPostsArray) => {
+                    setAccessibilityPosts(accessibilityPostsArray)
+                })
+        },
+
+        []
+    )
+
+    const [post, update] = useState({
+        review: "",
+        userId: "",
+        establishmentId: "",
+        accessibilityId: ""
+    })
+
+    const [accessibilityPost, updateAccessibilityPosts] = useState({
+        
+        postId: "",
+    })
+
+    const handleSaveButtonClick = (event) => {
+        event.preventDefault()
+
+        const ticketToSendToAPI = {
+            review: post.review,
+            userId: pottyUserObject.id,
+            establishmentId: parseInt(establishmentId),
+            timeStamp: Date.now()
+        }
+
+        const accessToSendToAPI = {
+            accessibilityId: post.accessibilityId,
+            postId: 0,
+        }
+
+        // TODO: Perform the fetch() to POST the object to the API
+        return fetch(`http://localhost:8088/posts`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(ticketToSendToAPI)
+        })
+            .then(response => response.json())
+            .then((newPost) => {
+                accessToSendToAPI.postId = newPost.id
+                return fetch(`http://localhost:8088/accessibilityPosts`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(accessToSendToAPI)
+                })
+            })
+    }
+
+    return (<form className="pottyForm">
         <h2>{establishment?.name}</h2>
-        <textarea id="textBox" name="letterText" rows={20} cols={100} />
-        <article className="accessibilities">
-            {
-                accessibilities.map(
-                    (accessibilitie) => {
-                        return <section className="accessibilitie" key={`accessibilitie--${accessibilitie.id}`}>{accessibilitie.name}
-                            <input type="checkbox" id="accessibilities" name="accessibilitie" value={accessibilitie.id} />
-                        </section>
-                    }
-                )
-            }
-        </article>
 
-        <button>Post Review</button>
-    </>
+        <div className="form-group ">
+            <label htmlFor="review">Write a Review</label>
+            <textarea
+                required autoFocus
+                type="textarea" row={20} cols={100}
+                className="formgroup-textarea"
+                placeholder="Write a Review"
+                value={post.review}
+                onChange={
+                    (evt) => {
+                        const copy = { ...post }
+                        copy.review = evt.target.value
+                        update(copy)
+                    }
+                } />
+        </div>
+
+        <fieldset>
+                <div className="drop__location">
+                    <label htmlFor="accessability"></label>
+                    <Dropdown
+                        label="Select an Accessability this bathroom offers: "
+                        accessibilities={accessibilities}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...post }
+                                copy.accessibilityId = parseInt(evt.target.value)
+                                update(copy)
+                            }
+                        }
+                    />
+                </div>
+            </fieldset>
+        <button
+            onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+
+            className="btn btn-primary">
+            Post Review
+        </button>
+    </form>
+    )
+
 }
+
+const Dropdown = ({ label, accessibilities, onChange }) => {
+
+    return (
+        <label className="the__drop">
+            {label}
+            <select onChange={(event) => { onChange(event) }}>
+                <option value={0}>select an accessibility</option>
+                {accessibilities.map((accessibilitie) => (
+                    <option key={accessibilitie.id} value={accessibilitie.id}>{accessibilitie.name}</option>
+                ))}
+            </select>
+        </label>
+    );
+};
