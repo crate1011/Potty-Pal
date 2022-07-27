@@ -5,6 +5,7 @@ export const EmployeeNavBar = () => {
 
     return (
         <ul className="navbar">
+            
             <li className="navbar__item active">
                 <Link color="white" className="navbar__link" to="/favorite/locations">Favorite Locations</Link>
             </li>
@@ -16,6 +17,11 @@ export const EmployeeNavBar = () => {
                 }}>Logout</Link>
             </li>
                 
+                
+                 <div className="big">
+                <h1 className="potty__pal">Potty Pal</h1>
+            <h2 className="potty__pal2">We Do Our Bussiness So You Can Do Yours</h2>
+            </div>
     </ul>
 
     )

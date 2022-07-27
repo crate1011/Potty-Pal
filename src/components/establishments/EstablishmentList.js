@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, Navigate } from "react-router-dom"
 import { AreaDropdown } from "../areas/AreaSelect"
+import { Establishment } from "./Establishment"
 import "./establishments.css"
 
 
@@ -13,11 +14,11 @@ export const EstablishmentList = ({ searchTermState }) => {
 
     useEffect(
         () => {
-                const searchedEstablishments = establishments.filter(establishment => {
-                    return establishment.name.toLowerCase().startsWith(searchTermState.toLowerCase())
-                })
-                setFilter(searchedEstablishments)
-            
+            const searchedEstablishments = establishments.filter(establishment => {
+                return establishment.name.toLowerCase().startsWith(searchTermState.toLowerCase())
+            })
+            setFilter(searchedEstablishments)
+
         },
         [searchTermState]
     )
@@ -25,36 +26,31 @@ export const EstablishmentList = ({ searchTermState }) => {
     useEffect(
         () => {
             fetch(`http://localhost:8088/establishments?_expand=area&areaId=${selectedArea}`)
-            .then(response => response.json())
-            .then((establishmentsArray) => {
-               setEstablishments(establishmentsArray)
-               setFilter(establishmentsArray)
-            })
+                .then(response => response.json())
+                .then((establishmentsArray) => {
+                    setEstablishments(establishmentsArray)
+                    setFilter(establishmentsArray)
+                })
         },
 
         [selectedArea]
     )
 
-    return <>
-        <AreaDropdown setSelectedArea={setSelectedArea}/>
+    return <article className="establishments">
+        <AreaDropdown setSelectedArea={setSelectedArea} />
+        {
+            filterEstablishments.map(establishment => <Establishment key={`establishment--${establishment.id}`}
+                id={establishment.id}
+                name={establishment.name}
+                address={establishment.address}
+            />)
 
-        <article className="establishments">
-            {
-                filterEstablishments.map(
-                    (establishment) => {
-                        return <section className="establishment" key={`establishment--${establishment.id}`}>
-                            <Link color="orange" className="navbar__link" to="create/review">{establishment.name}</Link>
-                            <footer>{establishment.address}</footer> 
-                            <button color="succss" className="button">favorite</button>
-                        </section>
-                    }
-                )
-            }
+        }
 
 
 
 
-        </article>
-    </>
-
+    </article>
 }
+
+

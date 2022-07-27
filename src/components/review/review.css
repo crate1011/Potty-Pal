@@ -1,0 +1,37 @@
+.accessibilities {
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 60rem;
+}
+
+.formgroup-textarea {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    height: 20rem;
+    margin-top: 2rem;
+}
+
+.pottyForm {
+    margin-left: 2rem;
+}
+
+.review__box {
+    background-color: cornflowerblue;
+    border: 1px dotted darkorange;
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+    width: 25rem;
+    margin-left: 44rem;
+}
+
+.reviews {
+    float: right;
+    margin-right: 10em;
+    background-color: black;
+}
+
+.recent {
+    float: right;
+    margin-right: 10rem;
+}
