@@ -12,7 +12,7 @@ export const CustomerViews = () => {
                 </>
             }>
 
-                
+
             </Route>
         </Routes>
     )

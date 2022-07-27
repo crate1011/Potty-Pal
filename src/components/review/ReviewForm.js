@@ -2,12 +2,11 @@ import { useEffect, useState } from "react"
 import { Navigate, useParams } from "react-router-dom"
 import "./review.css"
 
-export const ReviewForm = () => {
+export const ReviewForm = ({ getPosts }) => {
     const { establishmentId } = useParams()
     const [accessibilities, setAccessibilities] = useState([])
     const [establishment, updateEstablishment] = useState([])
     const [accessibilityPosts, setAccessibilityPosts] = useState([])
-    const [posts, setPosts] = useState([])
 
     const localPottyUser = localStorage.getItem("potty_user")
     const pottyUserObject = JSON.parse(localPottyUser)
@@ -36,17 +35,7 @@ export const ReviewForm = () => {
         [establishmentId]
     )
 
-    useEffect(
-        () => {
-            fetch(`http://localhost:8088/posts`)
-                .then(response => response.json())
-                .then((postsArray) => {
-                    setPosts(postsArray)
-                })
-        },
 
-        []
-    )
     useEffect(
         () => {
             fetch(`http://localhost:8088/accessibilityPosts`)
@@ -67,7 +56,7 @@ export const ReviewForm = () => {
     })
 
     const [accessibilityPost, updateAccessibilityPosts] = useState({
-        
+
         postId: "",
     })
 
@@ -105,6 +94,7 @@ export const ReviewForm = () => {
                     body: JSON.stringify(accessToSendToAPI)
                 })
             })
+            .then(getPosts)
     }
 
     return (<form className="pottyForm">
@@ -128,21 +118,21 @@ export const ReviewForm = () => {
         </div>
 
         <fieldset>
-                <div className="drop__location">
-                    <label htmlFor="accessability"></label>
-                    <Dropdown
-                        label="Select an Accessability this bathroom offers: "
-                        accessibilities={accessibilities}
-                        onChange={
-                            (evt) => {
-                                const copy = { ...post }
-                                copy.accessibilityId = parseInt(evt.target.value)
-                                update(copy)
-                            }
+            <div className="drop__location">
+                <label htmlFor="accessability"></label>
+                <Dropdown
+                    label="Select an Accessability this bathroom offers: "
+                    accessibilities={accessibilities}
+                    onChange={
+                        (evt) => {
+                            const copy = { ...post }
+                            copy.accessibilityId = parseInt(evt.target.value)
+                            update(copy)
                         }
-                    />
-                </div>
-            </fieldset>
+                    }
+                />
+            </div>
+        </fieldset>
         <button
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
 
