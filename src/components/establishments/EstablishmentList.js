@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { Link, Navigate } from "react-router-dom"
 import { AreaDropdown } from "../areas/AreaSelect"
 import { Establishment } from "./Establishment"
 import "./establishments.css"
 
+//creates a list of establishments and takes searchtermstate as a param
 export const EstablishmentList = ({ searchTermState }) => {
 
     const [establishments, setEstablishments] = useState([])
@@ -34,6 +34,7 @@ export const EstablishmentList = ({ searchTermState }) => {
         [selectedArea]
     )
 
+    //return will deconstruct establishment and reference my Establishment container
     return <article className="establishments">
         <AreaDropdown setSelectedArea={setSelectedArea} />
         {

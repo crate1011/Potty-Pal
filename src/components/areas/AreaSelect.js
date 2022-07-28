@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./area.css"
 
+//create a dropdown that will show a list of areas in Nashville
 export const AreaDropdown = ({ setSelectedArea }) => {
     const [areas, setAreas] = useState([])
 
