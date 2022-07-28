@@ -2,7 +2,7 @@ import { Link, Navigate } from "react-router-dom"
 import { Card, CardBody, CardSubtitle, CardText, CardTitle } from "reactstrap"
 import "./establishments.css"
 
-
+//creates an establishment card for each estab in api using deconstruction,
 export const Establishment = ({ id, name, address, establishmentObject, description, img }) => {
 
     const localPottyUser = localStorage.getItem("potty_user")
@@ -49,11 +49,9 @@ export const Establishment = ({ id, name, address, establishmentObject, descript
             <CardText>
                 {description}
             </CardText>
-
             {
                 SetFavorite()
             }
-
         </CardBody>
     </Card>
 }

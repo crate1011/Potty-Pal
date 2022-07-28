@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Review } from "./Review"
 
+//create a function that fetches my post data from my api and deconstructs it so that im able to use it in my review component
 export const ReviewList = ({ posts, getPosts }) => {
 
     const [accessability, setAccessibilities] = useState([])
@@ -15,6 +16,7 @@ export const ReviewList = ({ posts, getPosts }) => {
                 .then((accessabilityArray) => {
                     setAccessibilities(accessabilityArray)
                 })
+                .then(getPosts)
         },
 
         []
@@ -31,6 +33,7 @@ export const ReviewList = ({ posts, getPosts }) => {
                     currentUser={post.userId}
                     postObject={post}
                     getPosts={getPosts}
+                    userName={post.user.fullName}
                 />)
             }
         </article>

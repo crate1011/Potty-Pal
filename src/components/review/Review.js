@@ -1,9 +1,8 @@
 import { Button, Offcanvas } from "bootstrap"
 import { Card, CardBody, CardSubtitle, CardText, CardTitle, OffcanvasBody, OffcanvasHeader } from "reactstrap"
 
-
-
-export const Review = ({ review, currentUser, getPosts, postObject }) => {
+//creates a review card for each review in my database
+export const Review = ({ review, currentUser, getPosts, postObject, userName }) => {
 
     const localPottyUser = localStorage.getItem("potty_user")
     const pottyUserObject = JSON.parse(localPottyUser)
@@ -29,13 +28,12 @@ export const Review = ({ review, currentUser, getPosts, postObject }) => {
     >
         <CardBody>
             <CardTitle tag="h5">
-                User: {currentUser}
+                User: {userName}
             </CardTitle>
             <CardSubtitle
                 className="mb-2 text-muted"
                 tag="h6"
             >
-                { }
             </CardSubtitle>
             <CardText>
                 {review}

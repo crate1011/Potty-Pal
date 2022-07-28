@@ -3,7 +3,7 @@ import { Navigate, useParams } from "react-router-dom"
 import "./review.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
+//returns a form for the restaurant that has been clicked so that the user can create a review for that specific establishment
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
@@ -123,6 +123,14 @@ export const ReviewForm = ({ getPosts }) => {
                     body: JSON.stringify(accessToSendToAPI)
                 })
             })
+            .then(
+                update({
+                    review: "",
+                    userId: "",
+                    establishmentId: "",
+                    accessibilityId: ""
+                })
+            )
             .then(getPosts)
     }
 
