@@ -1,3 +1,6 @@
+import { Button, Offcanvas } from "bootstrap"
+import { Card, CardBody, CardSubtitle, CardText, CardTitle, OffcanvasBody, OffcanvasHeader } from "reactstrap"
+
 
 
 export const Review = ({ review, currentUser, getPosts, postObject }) => {
@@ -19,13 +22,29 @@ export const Review = ({ review, currentUser, getPosts, postObject }) => {
         }
     }
 
-    return <section className="review__box">
-        <div>
-            <div>User: {currentUser}</div>
-            <section> Review: {review}</section>
-        </div>
-        {
-            deleteButton()
-        }
-    </section>
+    return <Card className="cards"
+        style={{
+            width: '18rem'
+        }}
+    >
+        <CardBody>
+            <CardTitle tag="h5">
+                User: {currentUser}
+            </CardTitle>
+            <CardSubtitle
+                className="mb-2 text-muted"
+                tag="h6"
+            >
+                { }
+            </CardSubtitle>
+            <CardText>
+                {review}
+            </CardText>
+            {
+                deleteButton()
+            }
+        </CardBody>
+    </Card>
 }
+
+

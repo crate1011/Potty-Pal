@@ -1,13 +1,6 @@
-.establishment {
-    background-color: black;
-    border: 1px dotted;
-    padding: 0.7rem;
-    margin: 0.5rem 0;
-    width: 25rem;
-    margin-left: 44rem;
-    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/16507670-fe4b-440e-8928-ab038dababe0/ddy7vko-fcc4bde9-530d-4f47-be9f-c129b2c11588.png/v1/fill/w_1032,h_774,strp/toilet_paper_asset_by_aldenpsych777_ddy7vko-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODEwIiwicGF0aCI6IlwvZlwvMTY1MDc2NzAtZmU0Yi00NDBlLTg5MjgtYWIwMzhkYWJhYmUwXC9kZHk3dmtvLWZjYzRiZGU5LTUzMGQtNGY0Ny1iZTlmLWMxMjliMmMxMTU4OC5wbmciLCJ3aWR0aCI6Ijw9MTA4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.vZXjDN5vq03NP1u2SkWUna0kgIS7-sQqt48pDuB23sY');
-    background-size: 10%;
-   background-repeat: no-repeat;
+.cards {
+    margin-left: 45.9rem;
+    margin-bottom: 2rem;
 }
 
 .button {
@@ -17,6 +10,9 @@
 .searchBar {
     display: flex;
     justify-content: center;
+    margin-top: 3rem;
+    background-color: black;
+    
 }
 
 .establishments {
@@ -28,4 +24,13 @@
 
 .theLink {
     margin-left: 2rem;
+}
+
+.find {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 41.5rem;
+    margin-left: 35rem;
+    background-color: black;
 }

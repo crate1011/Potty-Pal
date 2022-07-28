@@ -16,22 +16,8 @@
     margin-left: 2rem;
 }
 
-.review__box {
-    background-color: cornflowerblue;
-    border: 1px dotted darkorange;
-    padding: 0.7rem;
-    margin: 0.5rem 0;
-    width: 25rem;
-    margin-left: 44rem;
-}
-
-.reviews {
-    float: right;
-    margin-right: 10em;
-    background-color: black;
-}
-
 .recent {
-    float: right;
-    margin-right: 10rem;
+    display: flex;
+    justify-content: center;
+    background-color: black;
 }

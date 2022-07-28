@@ -1,4 +1,7 @@
 .drop__area {
     display: flex;
     justify-content: center;
+    background-color: black;
+    width: 20rem;
+    margin-left: 45rem;
 }

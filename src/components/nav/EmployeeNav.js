@@ -1,28 +1,36 @@
-import { Link, useNavigate } from "react-router-dom"
+import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
-export const EmployeeNavBar = () => {
-    const navigate = useNavigate()
+export const EmployeeNavBar = (props) => {
+  const [collapsed, setCollapsed] = useState(true);
 
-    return (
-        <ul className="navbar">
-            
-            <li className="navbar__item active">
-                <Link color="white" className="navbar__link" to="/favorite/locations">Favorite Locations</Link>
-            </li>
-                
-            <li className="navbar__item navbar__logout">
-                <Link color="white" className="navbar__link" to="" onClick={() => {
-                    localStorage.removeItem("potty_user")
-                    navigate("/", {replace: true})
-                }}>Logout</Link>
-            </li>
-                
-                
-                 <div className="big">
-                <h1 className="potty__pal">Potty Pal</h1>
-            <h2 className="potty__pal2">We Do Our Bussiness So You Can Do Yours</h2>
-            </div>
-    </ul>
+  const toggleNavbar = () => setCollapsed(!collapsed);
 
-    )
+  return (
+    <div>
+      <Navbar color="faded" light>
+        <NavbarBrand href="/" className="me-auto">Potty Pal</NavbarBrand>
+        <NavbarToggler onClick={toggleNavbar} className="me-2" />
+        <Collapse isOpen={!collapsed} navbar>
+          <Nav navbar>
+            <NavItem>
+              <Link color="white" className="navbar__link" to="/favorite/locations">Favorite Locations</Link>
+            </NavItem>
+            <NavItem>
+              <Link color="white" className="navbar__link" to="" onClick={() => {
+                localStorage.removeItem("potty_user")
+                Navigate("/", { replace: true })
+              }}>Logout</Link>
+
+            </NavItem>
+            <NavItem>
+              <NavLink href=""></NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
+  );
 }
+

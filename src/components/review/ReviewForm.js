@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react"
 import { Navigate, useParams } from "react-router-dom"
 import "./review.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+import React from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 export const ReviewForm = ({ getPosts }) => {
     const { establishmentId } = useParams()
@@ -35,7 +40,6 @@ export const ReviewForm = ({ getPosts }) => {
         [establishmentId]
     )
 
-
     useEffect(
         () => {
             fetch(`http://localhost:8088/accessibilityPosts`)
@@ -59,6 +63,31 @@ export const ReviewForm = ({ getPosts }) => {
 
         postId: "",
     })
+
+    const Example = (args) => {
+        const [modal, setModal] = useState(false);
+
+        const toggle = () => setModal(!modal);
+
+        return (
+            <div>
+                <Button color="danger" onClick={toggle}>Read Our Review Guidelines</Button>
+                <Modal isOpen={modal} toggle={toggle} {...args}>
+                    <ModalHeader toggle={toggle}>Guidlines</ModalHeader>
+                    <ModalBody>
+                        No Potty Mouths will be tolerated, Please keep your reviews squeaky clean.
+                        No name calling, bullying or harassment of any kind.
+                        Do not use this site for anything other than what it's intended for.
+                        Breaking these rules will result in a swift banishment from our site.
+
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="secondary" onClick={toggle}>Close</Button>
+                    </ModalFooter>
+                </Modal>
+            </div>
+        );
+    }
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
@@ -139,7 +168,11 @@ export const ReviewForm = ({ getPosts }) => {
             className="btn btn-primary">
             Post Review
         </button>
+        {
+            Example()
+        }
     </form>
+
     )
 
 }
