@@ -9,7 +9,6 @@ export const ReviewContainer = () => {
     const { establishmentId } = useParams()
 
     const getPosts = () => {
-
         fetch(`http://localhost:8088/posts?establishmentId=${establishmentId}`)
             .then(response => response.json())
             .then((postsArray) => {
@@ -18,8 +17,7 @@ export const ReviewContainer = () => {
     }
 
     return <>
-
         <ReviewForm getPosts={getPosts} />
-        <ReviewList posts={posts} getPosts={getPosts}/>
+        <ReviewList posts={posts} getPosts={getPosts} />
     </>
 }

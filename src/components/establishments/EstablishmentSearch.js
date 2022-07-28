@@ -2,8 +2,11 @@ import "./establishments.css"
 
 export const EstablishmentSearch = ({ setterFunction }) => {
 
-    return (
-        <div className="searchBar">
+    return ( 
+    <div className="find">
+       <h2>Find An Establishment And Review A Bathroom</h2>
+        
+         
             <input 
                 onChange={
                     (changeEvent) => {
@@ -12,6 +15,7 @@ export const EstablishmentSearch = ({ setterFunction }) => {
                 }
                 type="text"  placeholder="Enter an establishment" />
         </div>
+
     )
 
 }

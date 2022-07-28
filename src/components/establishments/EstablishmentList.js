@@ -4,13 +4,11 @@ import { AreaDropdown } from "../areas/AreaSelect"
 import { Establishment } from "./Establishment"
 import "./establishments.css"
 
-
 export const EstablishmentList = ({ searchTermState }) => {
 
     const [establishments, setEstablishments] = useState([])
     const [filterEstablishments, setFilter] = useState([])
     const [selectedArea, setSelectedArea] = useState(null)
-
 
     useEffect(
         () => {
@@ -43,13 +41,12 @@ export const EstablishmentList = ({ searchTermState }) => {
                 id={establishment.id}
                 name={establishment.name}
                 address={establishment.address}
+                establishmentObject={establishment}
+                description={establishment.description}
+                img={establishment.img}
             />)
 
         }
-
-
-
-
     </article>
 }
 

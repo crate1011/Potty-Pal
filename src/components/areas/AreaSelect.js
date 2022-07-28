@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react"
 import "./area.css"
 
-
 export const AreaDropdown = ({ setSelectedArea }) => {
     const [areas, setAreas] = useState([])
-
-
 
     useEffect(
         () => {
@@ -34,9 +31,6 @@ export const AreaDropdown = ({ setSelectedArea }) => {
     )
 }
 
-
-
-
 const Dropdown = ({ label, options, onChange }) => {
 
     return (
@@ -52,12 +46,3 @@ const Dropdown = ({ label, options, onChange }) => {
         </label>
     );
 };
-
-// const areaFilter = () => {
-//     if (area.id === establishmemt.areaId) {
-//         return establishmentList()
-//     }
-//     else {
-//         return ""
-//     }
-// }

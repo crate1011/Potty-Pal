@@ -7,7 +7,7 @@ export const NavBar = () => {
     const localPottyUser = localStorage.getItem("potty_user")
     const pottyUserObject = JSON.parse(localPottyUser)
 
-    if (pottyUserObject.staff) {
+    if (pottyUserObject.staff === true) {
         return <EmployeeNavBar />
     }
     else {
