@@ -4,22 +4,14 @@
     height: 7em;
     background-image: url('https://www.kindpng.com/picc/m/225-2257275_bathroom-computer-icons-public-toilet-clip-art-male.png');
     background-size: 5%;
-    background-repeat: no-repeat
-}
-
-.navbar__item {
-    flex-basis: 20%;
-    list-style-type: none;
-    margin-left: 45em;
-
+    background-repeat: no-repeat;
+    margin-bottom: 1rem;
 }
 
 .me-auto {
     margin-left: 5rem;
-
     font-size: xx-large;
     font-style: oblique;
-
 }
 
 .potty__pal {
@@ -27,6 +19,13 @@
 }
 
 .navbar__link {
-    margin-left: 50rem;
+    margin-left: 100rem;
     padding-bottom: 1rem;
+    background-color: black;
+}
+
+.crate {
+    font-size: medium;
+    margin-right: 80rem;
+    margin-top: 1.7rem;
 }

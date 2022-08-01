@@ -6,9 +6,6 @@ export const ReviewList = ({ posts, getPosts }) => {
 
     const [accessability, setAccessibilities] = useState([])
 
-    const localPottyUser = localStorage.getItem("potty_user")
-    const pottyUserObject = JSON.parse(localPottyUser)
-
     useEffect(
         () => {
             fetch(`http://localhost:8088/accessibilityPosts?_expand=accessibility`)
@@ -29,7 +26,7 @@ export const ReviewList = ({ posts, getPosts }) => {
             {
                 posts.map(post => <Review key={`post--${post.id}`}
                     id={post.id}
-                    review={post.review}
+                    review={post?.review}
                     currentUser={post.userId}
                     postObject={post}
                     getPosts={getPosts}
