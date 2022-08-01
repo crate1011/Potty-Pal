@@ -43,6 +43,8 @@ fieldset {
 
 .container--login {
     text-align: center;
+    background-color: black;
+    height: 60rem;
 }
 
 .form--login {

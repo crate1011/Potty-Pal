@@ -22,7 +22,7 @@ export const Establishment = ({ id, name, address, establishmentObject, descript
                 body: JSON.stringify(favToSendToAPI)
             })
                 .then(() => {
-                    Navigate('/favorite/locations')
+                    Navigate('favorite/locations')
                 })
         }} className={"ticket__post"}>Favorite</button>
     }

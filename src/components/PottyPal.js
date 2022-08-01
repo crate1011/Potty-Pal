@@ -17,7 +17,6 @@ export const PottyPal = () => {
 		<Route path="*" element={
 			<Authorized>
 				<>
-				
 					<NavBar />
 					<ApplicationViews />
 				</>

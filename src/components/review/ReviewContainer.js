@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useParams } from "react-router-dom"
-import { Review } from "./Review"
 import { ReviewForm } from "./ReviewForm"
 import { ReviewList } from "./ReviewList"
 
