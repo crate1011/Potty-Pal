@@ -21,17 +21,18 @@ export const FavoritesList = () => {
         []
     )
 
+    const getFav = () => {
+        fetch(`http://localhost:8088/favoriteEstablishments?_expand=establishment&userId=${pottyUserObject.id}`)
+            .then(response => response.json())
+            .then((favArray) => {
+                setFavorites(favArray)
+            })
+    }
+
     return <>
          <article className="reviews">
             {
-                favorites.map(favorite=> <Favorite key={`post--${favorite.id}`}
-                    id={favorite.id}
-                    currentUser={favorite.userId}
-                    favObject={favorite}
-                    name={favorite?.establishment?.name}
-                    address={favorite?.establishment?.address}
-                    description={favorite?.establishment?.description}
-                    img={favorite?.establishment?.img}
+                favorites.map(favorite=> <Favorite favoriteObject={favorite} getFav={getFav} key={`post--${favorite.id}`}
                 />)
             }
         </article>
