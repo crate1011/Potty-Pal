@@ -18,6 +18,9 @@ export const CustomerNavBar = (props) => {
               <Link color="white" className="navbar__link" to="/favorite/locations">Favorite Locations</Link>
             </NavItem>
             <NavItem>
+              <Link color="white" className="navbar__link" to="/establishment/create">Establishment Form</Link>
+            </NavItem>
+            <NavItem>
               <Link color="white" className="navbar__link" to="" onClick={() => {
                 localStorage.removeItem("potty_user")
                 Navigate("/", { replace: true })

@@ -22,6 +22,9 @@ export const EmployeeNavBar = (props) => {
               <Link color="white" className="navbar__link" to="/user/list">User List</Link>
             </NavItem>
             <NavItem>
+              <Link color="white" className="navbar__link" to="/establishment/requests">New Establishment Requests</Link>
+            </NavItem>
+            <NavItem>
               <Link color="white" className="navbar__link" to="" onClick={() => {
                 localStorage.removeItem("potty_user")
                 Navigate("/", { replace: true })

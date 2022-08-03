@@ -1,4 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { NewEstablishmentList } from "../establishmentRequest.js/NewEstablishmentList"
 import { EstablishmentContainer } from "../establishments/EstablishmentContainer"
 import { FavoritesList } from "../favorites/FavoritesList"
 import { ReviewContainer } from "../review/ReviewContainer"
@@ -21,6 +22,7 @@ export const EmployeeViews = () => {
                 <Route path="/favorite/locations" element={<FavoritesList />} />
                 <Route path="/user/list" element={<UserList />} />
                 <Route path="user/:userId" element={ <UserDetails/> } />
+                <Route path="/establishment/requests" element={ <NewEstablishmentList/> } />
             </Route>
         </Routes>
     )
