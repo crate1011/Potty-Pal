@@ -4,6 +4,7 @@ import { ApplicationViews } from "./views/ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { Footer } from "./footer/Footer"
 
 
 
@@ -19,6 +20,7 @@ export const PottyPal = () => {
 				<>
 					<NavBar />
 					<ApplicationViews />
+					<Footer />
 				</>
 			</Authorized>
 
