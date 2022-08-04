@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "./establishmentCreate.css"
 
 export const EstablishmentRequestForm = () => {
 
@@ -28,21 +29,21 @@ export const EstablishmentRequestForm = () => {
         TODO: Use the useNavigation() hook so you can redirect
         the user to the ticket list
     */
-   const navigate = useNavigate()
+    const navigate = useNavigate()
 
-   const localPottyUser = localStorage.getItem("potty_user")
-   const pottyUserObject = JSON.parse(localPottyUser)
+    const localPottyUser = localStorage.getItem("potty_user")
+    const pottyUserObject = JSON.parse(localPottyUser)
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-    const ticketToSendToAPI = {
-       name: establishment.name,
-       address: establishment.address,
-       areaId: establishment.areaId,
-       description: establishment.description,
-       img: establishment.img
-    }
+        const ticketToSendToAPI = {
+            name: establishment.name,
+            address: establishment.address,
+            areaId: establishment.areaId,
+            description: establishment.description,
+            img: establishment.img
+        }
 
         // TODO: Perform the fetch() to POST the object to the API
         return fetch(`http://localhost:8088/establishmentRequests`, {
@@ -52,11 +53,17 @@ export const EstablishmentRequestForm = () => {
             },
             body: JSON.stringify(ticketToSendToAPI)
         })
-        .then(response => response.json())
-        .then(() => {
-            navigate("/")
-
-        })
+            .then(response => response.json())
+            .then(
+                update({
+                    name: "",
+                    address: "",
+                    areaId: "",
+                    description: "",
+                    img: ""
+                })
+            )
+            
     }
 
     return (
@@ -73,7 +80,7 @@ export const EstablishmentRequestForm = () => {
                         value={establishment.name}
                         onChange={
                             (evt) => {
-                                const copy = {...establishment}
+                                const copy = { ...establishment }
                                 copy.name = evt.target.value
                                 update(copy)
                             }
@@ -91,7 +98,7 @@ export const EstablishmentRequestForm = () => {
                         value={establishment.address}
                         onChange={
                             (evt) => {
-                                const copy = {...establishment}
+                                const copy = { ...establishment }
                                 copy.address = evt.target.value
                                 update(copy)
                             }
@@ -99,22 +106,6 @@ export const EstablishmentRequestForm = () => {
                 </div>
             </fieldset>
             <fieldset>
-            <div className="create__area">
-                <Dropdown
-                    options={areas}
-                    value={establishment.areaId}
-                    onChange={
-                        (evt) => {
-                            const copy = { ...establishment }
-                            copy.areaId = parseInt(evt.target.value)
-                            update(copy)
-                        }
-                    }>
-                </Dropdown>
-
-            </div>
-        </fieldset>
-        <fieldset>
                 <div className="form-group">
                     <label htmlFor="address">Description:</label>
                     <input
@@ -125,7 +116,7 @@ export const EstablishmentRequestForm = () => {
                         value={establishment.description}
                         onChange={
                             (evt) => {
-                                const copy = {...establishment}
+                                const copy = { ...establishment }
                                 copy.description = evt.target.value
                                 update(copy)
                             }
@@ -143,18 +134,34 @@ export const EstablishmentRequestForm = () => {
                         value={establishment.img}
                         onChange={
                             (evt) => {
-                                const copy = {...establishment}
+                                const copy = { ...establishment }
                                 copy.img = evt.target.value
                                 update(copy)
                             }
                         } />
                 </div>
             </fieldset>
-            
+            <fieldset>
+                <div className="create__area">
+                    <Dropdown
+                        options={areas}
+                        value={establishment.areaId}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...establishment }
+                                copy.areaId = parseInt(evt.target.value)
+                                update(copy)
+                            }
+                        }>
+                    </Dropdown>
+
+                </div>
+            </fieldset>
+
             <button
-            onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-            
-            className="btn btn-primary">
+                onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+
+                className="createEst">
                 Submit Request
             </button>
         </form>

@@ -10,7 +10,7 @@ export const EmployeeNavBar = (props) => {
   return (
     <div>
       <Navbar color="faded" light>
-        <NavbarBrand href="/" className="me-auto">Potty Pal</NavbarBrand>
+        <NavbarBrand href="/" className="me-auto">Potty Pal Admin</NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="me-2" />
         <h2 className='crate'>We Do Our Business, So You Can Do Yours.</h2>
         <Collapse isOpen={!collapsed} navbar>

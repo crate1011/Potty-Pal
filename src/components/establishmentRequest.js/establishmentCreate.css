@@ -1,0 +1,10 @@
+.establishmentCreateForm {
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+    margin-left: 2rem;
+}
+
+.createEst {
+    width: 10rem;
+}
