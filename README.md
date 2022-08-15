@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Potty Pal
+*We do our business so you can do yours*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## application Overview
 
-## Available Scripts
+Potty Pal is the App for people who value a clean safe bathroom experience when going out or traveling, some people don't care about their bathroom breaks, but if you happen to be like me, then cleanliness, safety and comfort are very important to you as well. This App allows a user to view establishments in their area and write and read others reviews of the locations bathroom, Potty Pal also shows what the bathrooms accessibility is like on the reviews, family freindly, gender binary, wheelchair accessible etc. this allows you to do some planning before you leave the house and give you peace of mind.
 
-In the project directory, you can run:
 
-### `npm start`
+I built this application in one week initially, using React Hooks, ReactStrap and CSS for some styling. My goals were to get a firmer grasp on understanding React, becoming better at planning things out for my project instead of rushing directly into coding, and lastly my goal was to make an App for an issue that mattered to me.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Users can filter locations down by area and use a search bar to find the correct establishent
+- user can create and post a review on a unique establishment
+- user can delete a review if needed
+- user can create a list of favorite establishments they would like to visit
+- user can make an establishment request to an Admin by filling out the new establishment request form
+- admin can delete users and approve new establishment requests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
+![image](https://user-images.githubusercontent.com/105528673/183157779-a08151c2-07d4-469a-b1bf-fa409416d6ea.png)
+![image](https://user-images.githubusercontent.com/105528673/183157835-99e6ec8c-701a-445b-ac72-0e9127112edd.png)
+![image](https://user-images.githubusercontent.com/105528673/183157888-59cfa84d-da1f-4adb-acf7-858c87b63a87.png)
+![image](https://user-images.githubusercontent.com/105528673/183157933-3a0c3484-a02a-4734-b7a3-d6b1c2904b83.png)
+![image](https://user-images.githubusercontent.com/105528673/183157976-5543fa85-504e-41ad-9e00-016e5ca1b7e5.png)
+![image](https://user-images.githubusercontent.com/105528673/183158015-89d806bd-2894-46f5-a5cf-e9642f48a8f3.png)
+![image](https://user-images.githubusercontent.com/105528673/183158127-8d8c783d-19ad-4213-af19-1f54d91be8cb.png)
+![image](https://user-images.githubusercontent.com/105528673/183158164-e94a87d3-6bd8-497e-9770-4074141ee75a.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Running This Application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+First, a note about authentication...
+This application uses mock authentication which is purely for demonstration purposes. Therefore the login and registration code written here is completely insecure and would never be implemented in a professional application.
 
-### `npm run eject`
+1. Clone This Repository And Change To The Directory In The Terminal.
+```
+git clone git@github.com:crate1011/Potty-Pal.git
+cd potty-pal
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2.Access The Data And Run The Data
+```
+https://github.com/crate1011/Potty-Pal-API
+json-server -p 8088 database.json -w
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3.Launch the client.
+```
+npm install
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# ERD
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![336A4BC7-AF08-4EAD-BC16-3D6EF2E7AF39_1_105_c](https://user-images.githubusercontent.com/105528673/183147798-9f1e28d1-dc79-4ae3-9064-eff755d744d9.jpeg)
 
-## Learn More
+# WireFrame
+![3E4DA863-6C56-4C56-AA9C-CACE92DEC88C](https://user-images.githubusercontent.com/105528673/184652868-e9464a5d-06e2-4b84-9625-7ebd41515b4d.jpeg)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
