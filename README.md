@@ -1,7 +1,7 @@
 # Potty Pal
 *We do our business so you can do yours*
 
-## application Overview
+## Application Overview
 
 Potty Pal is the App for people who value a clean safe bathroom experience when going out or traveling, some people don't care about their bathroom breaks, but if you happen to be like me, then cleanliness, safety and comfort are very important to you as well. This App allows a user to view establishments in their area and write and read others reviews of the locations bathroom, Potty Pal also shows what the bathrooms accessibility is like on the reviews, family freindly, gender binary, wheelchair accessible etc. this allows you to do some planning before you leave the house and give you peace of mind.
 
