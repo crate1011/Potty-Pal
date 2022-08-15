@@ -52,7 +52,14 @@ json-server -p 8088 database.json -w
 npm install
 npm start
 ```
-
+Admin Login
+```
+k@k.com
+```
+Regular User Login
+```
+w@w.com
+```
 # ERD
 
 ![336A4BC7-AF08-4EAD-BC16-3D6EF2E7AF39_1_105_c](https://user-images.githubusercontent.com/105528673/183147798-9f1e28d1-dc79-4ae3-9064-eff755d744d9.jpeg)
